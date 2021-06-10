@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="../css/data.css">
+  <title>Document</title>
+
+
+  <script src="simple-client.js"></script>
+</head>
+<script>
+      function firstgetdata() {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+
+                var data = this.responseText;
+                var jdata =JSON.parse(data);
+   
+                 console.log(jdata[0]);
+                
+
+              $(".temp-value").html(jdata[0].value.temperature + '°C') ;
+             $(".hum-value").html( jdata[0].value.humidity + '%');
+             $(".light-value").html( jdata[0].value.light);
+             $(".gas-value").html( jdata[0].value.gas);
+             $(".flame-value").html( jdata[0].value.flame);
+             let light = $(".light");
+             let gas   = $(".gas")
+             let flame   = $(".flame")
+            if(jdata[0].value.light == 1) {
+                  light.addClass("green");
+                  light.removeClass("red");
+                  
+              }
+              else {
+                    light.addClass("red");
+                    light.removeClass("green");
+
+                  }
+                  
+            if(jdata[0].value.gas == 1) {
+                    gas.addClass("green");
+                    gas.removeClass("red");
+              }
+              else {
+                    gas.addClass("red");
+                    gas.removeClass("green");
+                  }
+
+                  if(jdata[0].value.flame == 1) {
+                    flame.addClass("green");
+                    flame.removeClass("red");
+              }
+              else {
+                    flame.addClass("red");
+                    flame.removeClass("green");
+                  }
+
+
+
+
+            }
+
+
+                
+                
+        };
+        xmlhttp.open("get", "/sensor", true);
+        xmlhttp.send();
+    }
+    setInterval(function () {
+      console.log('done');
+            firstgetdata();
+    }, 2000);
+    
+    
+</script>
+  <body>
+    <h2 class="heading">
+      Monitoring
+    </h2>
+    <div class="data">
+        <div class="data-group">
+          <div class="temp">Temp : </div>
+          <p class="temp-value">
+
+          </p>
+          
+        </div>
+        <div class="data-group">
+          <div class="hum">humidity :</div>
+          <p class="hum-value">
+
+          </p>
+
+
+          
+        </div>
+        <div class="data-group">
+          <div class="light">
+            Light 
+  
+          </div>
+          <div class="flame">
+            Flame 
+          </div>
+          <div class="gas">
+            Gas
+          </div>
+
+        </div>
+    </div>
+  </body>
+</html>

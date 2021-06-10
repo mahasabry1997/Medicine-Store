@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="simple-client.js"></script>
+</head>
+<script>
+      function firstgetdata() {
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+
+                var data = this.responseText;
+                var jdata =JSON.parse(data);
+   
+                console.log(jdata[0].value.temprature);
+                console.log(typeof(data))
+
+                $("p").html(
+             'temprature ='+  jdata[0].value.temprature +'<br>'+ 
+              'humidity ='+  jdata[0].value.humidity+'<br> '+
+              'light ='+ jdata[0].value.light+' <br>'+
+              'flame ='+ jdata[0].value.flame);
+                
+            }
+        };
+        xmlhttp.open("get", "/test", true);
+        xmlhttp.send();
+    }
+    setInterval(function () {
+      console.log('done');
+            firstgetdata();
+    }, 2000);
+    
+</script>
+  <body>
+    <p>  </p>
+  </body>
+</html>

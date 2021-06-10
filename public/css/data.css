@@ -1,0 +1,139 @@
+body {
+    background-image: url(https://cdn2.hubspot.net/hubfs/80068/real-time-visibility-wifi-performance-tips.png);
+    background-position: top;  
+    
+     
+}
+.heading {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 30px;
+    transition: all 0.4s;
+    
+}
+.heading:hover { 
+    transform: scale(1.1) skew(-15deg);
+}
+
+.data{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    top: 150px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    
+}
+.data-group{
+    width: 33%;
+    padding: 3rem;
+    border-radius: 10px;
+    margin: 3rem;
+    height: 300px;
+    text-align: center;
+    transition: all 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-weight: 700;
+    background-position: center;
+    background-size: cover;
+    
+    
+    
+}
+.data-group:hover {
+    transform: scale(1.1); 
+    
+
+}
+.data-group:first-child {
+    
+    background-color: rgba(121, 51, 114, .5) ;
+    
+    
+
+}
+.data-group:first-child:hover {
+}
+.data-group:nth-child(3) {
+    background-color: rgba(121, 51, 114, .5) ;
+
+    
+
+    /* https://png.pngtree.com/element_our/png/20181206/humidity-vector-icon-png_261824.jpg */
+
+}
+.data-group:nth-child(3):hover {
+     background-color: rgba(121, 51, 114, .9) ; 
+    
+
+}
+.data-group:nth-child(1) {
+    background-color: rgba(121, 51, 114, .5) ;
+
+    
+
+    /* https://png.pngtree.com/element_our/png/20181206/humidity-vector-icon-png_261824.jpg */
+
+}
+.data-group:nth-child(1):hover {
+     background-color: rgba(121, 51, 114, 0.9) ; 
+    
+
+}
+.data-group:nth-child(2) {
+    background-color: rgba(121, 51, 114, .5) ;
+
+    
+
+    /* https://png.pngtree.com/element_our/png/20181206/humidity-vector-icon-png_261824.jpg */
+
+}
+.data-group:nth-child(2):hover {
+     background-color: rgba(121, 51, 114, 0.9) ; 
+    
+
+}
+
+.data-group:last-child {
+    background-color: rgba(121, 51, 114, .5) ;
+
+
+    /* https://banner2.cleanpng.com/20180331/dzw/kisspng-web-development-website-monitoring-network-monitor-system-5abf37b9232b71.8769510415224810811441.jpg*/ 
+}
+.data-group:last-child:hover {
+}
+.temp , .hum ,.gas ,. .flame{
+}
+.temp-value , .hum-value{
+    padding-top: 70px;
+    font-size: 50px ;
+    font-weight: 800;
+}
+.temp-value {
+    color: black;
+}
+.light ,.gas ,.flame {
+  
+    background-position: center;
+    border-radius:50%;
+    padding: 20px;
+    transition: all 0.4s;
+    
+
+}
+.green {
+    background-color: green !important;
+}
+.red {
+    background-color: red !important;
+
+}
